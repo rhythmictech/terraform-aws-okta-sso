@@ -41,3 +41,18 @@ resource "aws_iam_user_group_membership" "okta_sso_group_membership" {
     "${aws_iam_group.okta_sso_group.name}"
   ]
 }
+
+resource "aws_iam_access_key" "okta_sso_user_key" {
+  user = aws_iam_user.okta_sso_user.name
+}
+
+resource "aws_secretsmanager_secret" "secret_key" {
+  name_prefix = "okta_sso_user"
+
+
+}
+
+resource "aws_secretsmanager_secret_version" "secret_key_value" {
+  secret_id     = aws_secretsmanager_secret.secret_key.id
+  secret_string = aws_iam_access_key.okta_sso_user_key.secret
+}
