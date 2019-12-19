@@ -2,7 +2,7 @@ output "okta_sso_user_key_id" {
   value = aws_iam_access_key.okta_sso_user_key.id
 }
 
-output "okta_sso_user_key" {
+output "okta_sso_user" {
   value = aws_iam_user.okta_sso_user.name
 }
 
