@@ -1,11 +1,11 @@
-output "okta_sso_user_key_id" {
-  value = aws_iam_access_key.okta_sso_user_key.id
+output "iam_access_key_okta_user" {
+  value = aws_iam_access_key.this.id
 }
 
-output "okta_sso_user" {
-  value = aws_iam_user.okta_sso_user.name
+output "iam_user_okta" {
+  value = aws_iam_user.this.name
 }
 
-output "okta_sso_user_key_secret_arn" {
-  value = aws_secretsmanager_secret.secret_key.id
+output "secretsmanager_secret_okta_user_secret_key" {
+  value = aws_secretsmanager_secret.this.id
 }
