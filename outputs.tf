@@ -1,4 +1,5 @@
 output "iam_access_key_okta_user" {
+description = "ID of IAM access key for new Okta user"
   value = aws_iam_access_key.this.id
 }
 
