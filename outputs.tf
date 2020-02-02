@@ -4,6 +4,7 @@ description = "ID of IAM access key for new Okta user"
 }
 
 output "iam_user_okta" {
+description = "User name for new Okta user"
   value = aws_iam_user.this.name
 }
 
