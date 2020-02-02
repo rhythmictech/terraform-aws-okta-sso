@@ -8,5 +8,6 @@ output "iam_user_okta" {
 }
 
 output "secretsmanager_secret_okta_user_secret_key" {
+description = "ARN of Secrets Manager secret containing new Okta user's IAM access key"
   value = aws_secretsmanager_secret.this.id
 }
