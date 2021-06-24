@@ -30,6 +30,7 @@ resource "aws_iam_group_policy" "this" {
 resource "aws_iam_user" "this" {
   name = var.iam_user_name
   path = "/"
+  tags = var.tags
 }
 
 resource "aws_iam_user_group_membership" "this" {
