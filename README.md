@@ -46,6 +46,9 @@ data "aws_iam_policy_document" "this" {
 }
 ```
 
+## Upgrade Notes
+If upgrading from version 1.0 (or prior) to v2.0.0 (or later), you must be careful to properly reshuffle your SAML providers. You can either let TF nuke and recreate them or manually manage state to rename things. If you are using one of the SAML providers to authenticate your terraform session, proceed with caution.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
