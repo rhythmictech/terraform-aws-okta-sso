@@ -1,8 +1,9 @@
 
 resource "aws_iam_saml_provider" "this" {
-  count                  = length(keys(var.saml_providers))
-  name                   = element(keys(var.saml_providers), count.index)
-  saml_metadata_document = element(values(var.saml_providers), count.index)
+  for_each = toset(keys(var.saml_providers))
+
+  name                   = each.value
+  saml_metadata_document = var.saml_providers[each.value]
 }
 
 data "aws_iam_policy_document" "this" {
