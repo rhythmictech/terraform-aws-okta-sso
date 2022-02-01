@@ -1,9 +1,9 @@
 
 resource "aws_iam_saml_provider" "this" {
-  for_each = keys(var.saml_providers)
+  for_each = var.saml_providers
 
   name                   = each.key
-  saml_metadata_document = var.saml_providers[each.key]
+  saml_metadata_document = each.value
 }
 
 data "aws_iam_policy_document" "this" {
