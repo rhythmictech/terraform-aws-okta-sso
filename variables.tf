@@ -10,6 +10,12 @@ variable "iam_user_name" {
   type        = string
 }
 
+variable "kms_key_id" {
+  default = ""
+  description = "kms key id to encrypt Okta Secret"
+  type = string
+ }
+
 variable "saml_providers" {
   description = "A map of SAML provider names and metadata"
   type        = map(string)

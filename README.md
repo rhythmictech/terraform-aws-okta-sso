@@ -87,6 +87,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_iam_group_name"></a> [iam\_group\_name](#input\_iam\_group\_name) | Name of the IAM group Okta IAM policies will be attached to | `string` | `"okta-sso"` | no |
 | <a name="input_iam_user_name"></a> [iam\_user\_name](#input\_iam\_user\_name) | Username for the Okta service account | `string` | `"okta-sso"` | no |
+| <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | kms key id to encrypt Okta Secret | `string` | `""` | no |
 | <a name="input_saml_providers"></a> [saml\_providers](#input\_saml\_providers) | A map of SAML provider names and metadata | `map(string)` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to supported resources | `map(string)` | `{}` | no |
 
