@@ -48,6 +48,7 @@ resource "aws_iam_access_key" "this" {
 resource "aws_secretsmanager_secret" "this" {
   name_prefix = "terraform-okta-sso"
   description = "Okta SSO user access key"
+  kms_key_id  = var.kms_key_id
   tags        = var.tags
 }
 
