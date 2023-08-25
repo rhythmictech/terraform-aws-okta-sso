@@ -97,5 +97,4 @@ No modules.
 |------|-------------|
 | <a name="output_iam_access_key_okta_user"></a> [iam\_access\_key\_okta\_user](#output\_iam\_access\_key\_okta\_user) | ID of IAM access key for new Okta user |
 | <a name="output_iam_user_okta"></a> [iam\_user\_okta](#output\_iam\_user\_okta) | User name for new Okta user |
-| <a name="output_secretsmanager_secret_okta_user_secret_key"></a> [secretsmanager\_secret\_okta\_user\_secret\_key](#output\_secretsmanager\_secret\_okta\_user\_secret\_key) | ARN of Secrets Manager secret containing new Okta user's IAM access key |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
