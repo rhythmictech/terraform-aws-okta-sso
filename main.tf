@@ -29,23 +29,31 @@ resource "aws_iam_group_policy" "this" {
 }
 
 resource "aws_iam_user" "this" {
+  count = var.create_okta_iam_user ? 1 : 0
+
   name = var.iam_user_name
   path = "/"
   tags = var.tags
 }
 
 resource "aws_iam_user_group_membership" "this" {
-  user = aws_iam_user.this.name
+  count = var.create_okta_iam_user ? 1 : 0
+
+  user = aws_iam_user.this[0].name
   groups = [
     aws_iam_group.this.name
   ]
 }
 
 resource "aws_iam_access_key" "this" {
-  user = aws_iam_user.this.name
+  count = var.create_okta_iam_user ? 1 : 0
+
+  user = aws_iam_user.this[0].name
 }
 
 resource "aws_secretsmanager_secret" "this" {
+  count = var.create_okta_iam_user ? 1 : 0
+
   name_prefix = "terraform-okta-sso"
   description = "Okta SSO user access key"
   kms_key_id  = var.kms_key_id
@@ -53,6 +61,33 @@ resource "aws_secretsmanager_secret" "this" {
 }
 
 resource "aws_secretsmanager_secret_version" "this" {
-  secret_id     = aws_secretsmanager_secret.this.id
-  secret_string = aws_iam_access_key.this.secret
+  count = var.create_okta_iam_user ? 1 : 0
+
+  secret_id     = aws_secretsmanager_secret.this[0].id
+  secret_string = aws_iam_access_key.this[0].secret
+}
+
+moved {
+  from = aws_iam_user.this
+  to   = aws_iam_user.this[0]
+}
+
+moved {
+  from = aws_iam_user_group_membership.this
+  to   = aws_iam_user_group_membership.this[0]
+}
+
+moved {
+  from = aws_iam_access_key.this
+  to   = aws_iam_access_key.this[0]
+}
+
+moved {
+  from = aws_secretsmanager_secret.this
+  to   = aws_secretsmanager_secret.this[0]
+}
+
+moved {
+  from = aws_secretsmanager_secret_version.this
+  to   = aws_secretsmanager_secret_version.this[0]
 }

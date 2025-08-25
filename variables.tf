@@ -26,3 +26,9 @@ variable "tags" {
   description = "Tags to apply to supported resources"
   type        = map(string)
 }
+
+variable "create_okta_iam_user" {
+  description = "Create IAM user for Okta and related resources"
+  type        = bool
+  default     = true
+}
