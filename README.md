@@ -85,6 +85,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_create_okta_iam_user"></a> [create\_okta\_iam\_user](#input\_create\_okta\_iam\_user) | Create IAM user for Okta and related resources | `bool` | `true` | no |
 | <a name="input_iam_group_name"></a> [iam\_group\_name](#input\_iam\_group\_name) | Name of the IAM group Okta IAM policies will be attached to | `string` | `"okta-sso"` | no |
 | <a name="input_iam_user_name"></a> [iam\_user\_name](#input\_iam\_user\_name) | Username for the Okta service account | `string` | `"okta-sso"` | no |
 | <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | kms key id to encrypt Okta Secret | `string` | `""` | no |
